@@ -23,6 +23,12 @@ const Order = new mongoose.Schema({
     ShippingAdress: {
         type: mongoose.Schema.Types.ObjectId,
         required: true
+    },
+
+    userInfo: {
+        name: String,
+        email: String,
+        phone: Number,
     }
 
 })
