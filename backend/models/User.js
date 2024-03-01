@@ -13,7 +13,7 @@ const User = new mongoose.Schema({
         unique: true,
     },
 
-    name: {
+    firstname: {
         type: String,
         required: true,
     },

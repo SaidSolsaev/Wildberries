@@ -10,6 +10,13 @@ const Order = new mongoose.Schema({
         default: new Date(),
     },
 
+    products: [{
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        quantity: Number,
+        ref: "Product"
+    }],
+
     total_amount: {
         type: Number,
         required: true
@@ -20,9 +27,11 @@ const Order = new mongoose.Schema({
         enum: ["Pending", "Sent", "Cancelled"]
     },
 
-    ShippingAdress: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true
+    shippingAdress: {
+        country: String,
+        city: String,
+        street: String,
+        postalCode: String,
     },
 
     userInfo: {

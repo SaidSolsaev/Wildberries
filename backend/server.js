@@ -3,6 +3,11 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import authRouter from "./routes/auth.js";
+import categoryRoute from "./routes/category.js";
+import orderRouter from "./routes/order.js";
+import productRouter from "./routes/product.js";
+import userRouter from "./routes/user.js";
 
 const app = express();
 
@@ -21,12 +26,11 @@ const connect = async () => {
     }
 }
 
-// app.use("/auth", authRouter);
-// app.use("/categories", categoryRoute);
-// app.use("/order", orderRouter);
-// app.use("/product", productRouter);
-// app.use("/users", userRouter);
-// app.use("/cupon", cuponRouter);
+app.use("/auth", authRouter);
+app.use("/categories", categoryRoute);
+app.use("/order", orderRouter);
+app.use("/product", productRouter);
+app.use("/users", userRouter);
 
 
 //Error handler
