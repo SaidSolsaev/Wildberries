@@ -6,17 +6,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AuthContext } from '../../context/AuthContext';
 import { useCart } from '../../context/CartContext';
 import Cart from '../Cart/Cart';
+import logo from "../../assets/images/logo1.jpg"
 
 export default function Navbar() {
     const [showHamburger, setShowHamburger] = useState(false);
     const [showCart, setShowCart] = useState(false);
     const {user, dispatch} = useContext(AuthContext);
     
+
     const cart = useCart();
-
-    console.log(cart)
-
     var cartItems = cart.cartState.cartItems;
+
     
 
     const handleShowCart = () => {
@@ -39,7 +39,7 @@ export default function Navbar() {
         <>
             <nav className='navbar-container'>
                 <div className='logo'>
-                    <h1>LOGO</h1>
+                    <img style={{width: "80px"}} src={logo} alt='wildberries'/>
                 </div>
 
                 <div className='nav-elements'>
@@ -73,7 +73,7 @@ export default function Navbar() {
                 <div className='profile'>
                     <span className='cart' onClick={handleShowCart}>
                         <i><FontAwesomeIcon icon={faCartShopping} /></i>
-                        {/* <span className={user ? 'cart_badge' : 'cart_badge user'}>{cartItems.length}</span> */}
+                        <span className={user ? 'cart_badge' : 'cart_badge user'}>{cartItems.length}</span>
                     </span>
                     {user ? (
                         <div className='dropdown'>

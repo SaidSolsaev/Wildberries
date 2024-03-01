@@ -1,12 +1,12 @@
 import { createContext, useContext, useReducer } from 'react';
 
 // Define the initial state of the cart
-const initialState = {
+const INITAL_STATE = {
     cartItems: [],
 };
 
 // Create the cart context
-export const CartContext = createContext();
+export const CartContext = createContext(INITAL_STATE);
 
 // Define a custom hook to access the cart context
 export function useCart() {
@@ -71,7 +71,7 @@ function cartReducer(state, action) {
 
 // Create a CartProvider component to wrap your app
 export function CartProvider({ children }) {
-    const [cartState, dispatch] = useReducer(cartReducer, initialState);
+    const [cartState, dispatch] = useReducer(cartReducer, INITAL_STATE);
 
     return (
         <CartContext.Provider value={{ cartState, dispatch }}>
