@@ -11,37 +11,32 @@ export default function Header() {
                 <div className='row'>
                     <div className='col'>
                         <div className='content'>
-                            <h5>Easy way to make an order</h5>
                             <h1>
-                                <span>HUNGRY? </span>
-                                Just Wait <br /> food at
-                                <span> your door</span>
+                                <span>SØTE & SAFTIGE</span>
+                                <br />Norske bær<br />
+                                <span>SJEKK UT MER</span>
                             </h1>
-                            <p>some description text or something.....</p>
+                            <p>Vi selger norske bær: Jordbær, bringebær, moreller</p>
                             
                             <div className="col-btns">
-                                <button className="orderBtn">Order Now</button>
-                                <button className="allFoodsBtn">See all foods</button>
+                                <button className="orderBtn">Bestill Nå</button>
+                                <button className="allFoodsBtn">Se lokasjoner</button>
                             </div>
 
                             <div className="service">
                                 <p>
                                     <span><FontAwesomeIcon icon={faCar} /></span>
-                                    Free delivery
+                                    Vi leverer på døra
                                 </p>
                                 <p>
                                     <span><FontAwesomeIcon icon={faMoneyCheckDollar} /></span>
-                                    100% secure checkout
+                                    Betal med kort
                                 </p>
                             </div>
                         </div>
                     </div>
 
-                    <div className='col'>
-                        <div className="imgHero">
-                            <img alt='hero' />
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </section>

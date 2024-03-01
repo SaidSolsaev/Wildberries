@@ -1,0 +1,26 @@
+
+.service-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f4f4f4; /* Bakgrunnsfarge */
+    padding: 20px;
+    padding-right:100px;
+    padding-left: 100px;
+}
+
+.service-item {
+    display: flex;
+    text-align: center;
+    flex-grow: 1;
+}
+  
+.service-item img {
+    max-width: 40px; /* Juster størrelsen etter dine behov */
+    margin-bottom: 10px;
+}
+
+.service-item h3 {
+    margin: 10px 0;
+    font-size: 1em; /* Størrelsen på overskriftene */
+  }

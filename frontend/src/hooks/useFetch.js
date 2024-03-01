@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react"
 
 const useFetch = (url) => {
@@ -12,7 +13,7 @@ const useFetch = (url) => {
             setLoading(true)
             
             try {
-                const res = await fetch(`${process.env.REACT_APP_SERVERURL}${url}`);
+                const res = await axios.get(`${process.env.REACT_APP_SERVERURL}${url}`);
                 setData(res.data)
             } catch (error) {
                 setError(error);
@@ -26,7 +27,7 @@ const useFetch = (url) => {
         setLoading(true);  
         
         try {
-            const res = await fetch(`${process.env.REACT_APP_SERVERURL}${url}`);
+            const res = await axios.get(`${process.env.REACT_APP_SERVERURL}${url}`);
             setData(res.data)
         } catch (error) {
             setError(error);
