@@ -10,6 +10,10 @@ const Category = new mongoose.Schema({
     description: {
         type: String
     },
+
+    image: {
+        type: String,
+    },
     
     products:[{
         type: mongoose.Schema.Types.ObjectId,

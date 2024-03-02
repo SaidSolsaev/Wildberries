@@ -1,30 +1,34 @@
 import React from 'react'
 import "./MainIcons.css"
 import img from "../../assets/images/logo.png"
+import {faStar, faTruckFast, faHandsHolding} from "@fortawesome/free-solid-svg-icons"
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 
 const MainIcons = () => {
     
     return (
         <div class="service-section">
-            <div class="service-item">
-                <img src={img} alt="Kvalitetsgaranti" />
-                <h3>Kvalitetsgaranti på alle blomster og planter</h3>
+            <div className='container'>
+                <div className='item-container'>
+                    <div class="service-item">
+                        <span><FontAwesomeIcon icon={faStar} /></span>
+                        <p>Kvalitetsgaranti på alle bær</p>
+                    </div>
+                    
+                    <div class="service-item">
+                        <span><FontAwesomeIcon icon={faTruckFast} /></span>
+                        <p>Levering på døren samme dag</p>
+                    </div>
+                    
+                    
+                    <div class="service-item">
+                        <span><FontAwesomeIcon icon={faHandsHolding}/></span>
+                        <p>Ferske & Håndplukkede hver dag</p>
+                    </div>
+                    
+                </div>
             </div>
-            
-            <div class="service-item">
-                <img src={img} alt="Levering samme dag" />
-                <h3>Levering på døren samme dag</h3>
-            </div>
-            
-            <div class="service-item">
-                <img src={img} alt="Norges beste kundesenter 2023" />
-                <h3>Norges beste kundesenter 2023</h3>
-            </div>
-            
-            <div class="service-item">
-                <img src={img} alt="Ekte håndverk - høy fagkunnskap" />
-                <h3>Ekte håndverk - høy fagkunnskap</h3>
-            </div>
+        
         </div>
     )
 }
