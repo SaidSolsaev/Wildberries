@@ -1,0 +1,114 @@
+
+.bestseller-section{
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.header-text{
+    padding: 30px 16px;
+}
+
+.bestseller-carousel{
+    display: flex;
+    justify-content: center;
+}
+
+.product-card{
+    width: 280px;
+    display: flex;
+    padding: 7px 16px;
+    flex-direction: column;
+}
+
+
+.product-card .image-container img{
+    max-width: 100%;
+    cursor: pointer;
+    transition: all .7s;
+}
+
+.product-card .image-container img:hover{
+    transform:scale(1.05);
+}
+
+.product-card .body-container{
+    display: flex;
+    flex-direction: column;
+    padding: 1em 0 2rem;
+}
+
+.product-card .body-container .title{
+    margin: 0 0 16px;
+    height: 48px;
+}
+
+.product-card .body-container .title a{
+    color: #f14f85;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.product-card .body-container .title a:hover{
+    text-decoration: underline;
+}
+
+.product-card .product-info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-card .product-info span{
+    font-size: 28px;
+    color:#cd3266d0;
+    cursor: default;
+    border-bottom: 3px solid rgb(4, 156, 47);
+}
+
+.product-card .product-info button{
+    height: 40px;
+    width: 40px;
+    border: none;
+    border-radius: 40px;
+    padding: 0;
+    cursor: pointer;
+    background-color: rgb(246, 75, 75);
+    color: #fff;
+    font-size: 20px;
+}
+
+.product-card .product-info button:hover{
+    background-color: rgb(253, 6, 6);
+}
+
+.button-link-wrapper{
+    padding: 8px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button-link-wrapper a{
+    padding: 7px 23px;
+    font-size: 14px;
+    line-height: 18px;
+    background-color: rgb(246, 75, 75);
+    border-radius: 40px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.button-link-wrapper .slide-icons{
+    display: flex;
+    font-size: 16px;
+    align-items: center;
+    color: #cd3266d0;
+    cursor: default;
+}
+
+.button-link-wrapper .slide-icons .arrow-icons svg{
+    gap: 10px;
+    margin-left: 20px;
+    font-size: 24px;
+    color: #cd3266d0;
+    cursor: pointer;
+}
