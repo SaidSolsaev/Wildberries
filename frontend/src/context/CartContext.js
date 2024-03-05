@@ -6,7 +6,7 @@ const INITAL_STATE = {
 };
 
 // Create the cart context
-export const CartContext = createContext(INITAL_STATE);
+export const CartContext = createContext();
 
 // Define a custom hook to access the cart context
 export function useCart() {
@@ -17,13 +17,13 @@ export function useCart() {
 function cartReducer(state, action) {
     switch (action.type) {
         case 'ADD_TO_CART':
-            const existingItem = state.cartItems.find(item => item.item._id === action.payload.item._id);
-
+            const existingItem = state.cartItems.find(item => item.product._id === action.payload.product._id);
+            
             if (existingItem){
                 return{
                     ...state,
                     cartItems: state.cartItems.map(item => 
-                        item.item._id === action.payload.item._id
+                        item.product._id === action.payload.product._id
                         ? {...item, quantity: item.quantity +1}
                         : item
                     ),
@@ -40,7 +40,7 @@ function cartReducer(state, action) {
             return{
                 ...state,
                 cartItems: state.cartItems.map(item => 
-                    item.item._id === action.payload
+                    item.product._id === action.payload
                     ? {...item, quantity: item.quantity +1}
                     : item
                 ),
@@ -49,7 +49,7 @@ function cartReducer(state, action) {
             return{
                 ...state,
                 cartItems: state.cartItems.map(item => 
-                    item.item._id === action.payload
+                    item.product._id === action.payload
                     ? {...item, quantity: Math.max(1, item.quantity - 1)}
                     : item
                 ),
@@ -57,7 +57,7 @@ function cartReducer(state, action) {
         case 'REMOVE_FROM_CART':
             return {
                 ...state,
-                cartItems: state.cartItems.filter(item => item.item._id !== action.payload),
+                cartItems: state.cartItems.filter(item => item.product._id !== action.payload),
             };
         case 'CLEAR_CART':
             return {
@@ -65,7 +65,7 @@ function cartReducer(state, action) {
                 cartItems: [],
             };
         default:
-        return state;
+            return state;
     }
 }
 

@@ -30,20 +30,20 @@ export default function CartItem({item}) {
 
             <div className='cart_product_info'>
                 <div className='cart_product_info_col'>
-                    <h4>{item.item.title}</h4>
+                    <h4>{item.product.title}</h4>
                     <p>
                         {item.quantity}x
-                        <span>{(item.item.price * item.quantity).toFixed(2)}$</span>
+                        <span>{(item.product.price * item.quantity).toFixed(2)}$</span>
                     </p>
 
                     <div className="cart_product_increase">
-                        <span className='increase' onClick={() => increaseItem(item.item._id)}>+</span>
+                        <span className='deacrese' onClick={() => decreaseItem(item.product._id)}>-</span>
                         <span className='qnty'>{item.quantity}</span>
-                        <span className='deacrese' onClick={() => decreaseItem(item.item._id)}>-</span>
+                        <span className='increase' onClick={() => increaseItem(item.product._id)}>+</span>
                     </div>
                 </div>
 
-                <span className='cart_delete_btn' onClick={() => removeFromCart(item.item._id)}>
+                <span className='cart_delete_btn' onClick={() => removeFromCart(item.product._id)}>
                     <i><FontAwesomeIcon icon={faXmark} /></i>
                 </span>
             </div>

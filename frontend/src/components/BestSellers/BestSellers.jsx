@@ -6,7 +6,7 @@ import jordbær from "../../assets/images/jordbær.jpeg"
 import {faCartShopping, faArrowRight, faArrowLeft} from "@fortawesome/free-solid-svg-icons"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
-
+import {useCart} from "../../context/CartContext"
 
 const BestSellers = () => {
     const {data, loading} = useFetch("/product");
@@ -16,37 +16,40 @@ const BestSellers = () => {
 
 
     useEffect(() => {
-        let productList = [];
-        data.map((itm, index) => {
-            if(itm.isFeatured){
-                return productList.push(itm)
-            } else{
-                return
-            }
-        });
-        setFeaturedProducts(productList)
+        setFeaturedProducts(data.filter((item) => item.isFeatured));
     }, [data])
 
-    function handleSlider(page) {
-        if(sliderPage === 3){
-            setSliderPage(1)
-        } else if(sliderPage < 1){
-            setSliderPage(1)
-        } else{
-            setSliderPage(sliderPage + page)
-        }
+    function handleSlider(change) {
+        setSliderPage((prevPage) => {
+            let newPage = prevPage + change;
+            const totalPages = Math.ceil(featuredProducts.length / 4);
+            if (newPage > totalPages) {
+                newPage = 1;
+            } else if (newPage < 1) {
+                newPage = totalPages;
+            }
+            return newPage;
+        });
     }
 
-    // console.log(data)
-    // console.log(featuredProducts)
+    const startIndex = (sliderPage - 1) * 4;
+    const endIndex = startIndex + 4;
+    const productsToShow = featuredProducts.slice(startIndex, endIndex);
+    
+    const { dispatch} = useCart();
+    
+    const addToCart = (item) => {
+        dispatch({type: 'ADD_TO_CART', payload: item})
+    }
 
+    
     return (
         <>
         
         {loading ? 
-        <div>
             <LoadingSpinner />
-        </div> : 
+        :
+
         <div className='bestseller-section'>
             <div className='bestseller-header'>
                 <div className='header-text'>
@@ -55,27 +58,29 @@ const BestSellers = () => {
             </div>
 
             <div className='bestseller-carousel'>
-                {featuredProducts.map((product, index) => (
-                    <div className='product-card' key={index}>
-                        <div className='image-container'>
-                            <img src={jordbær} alt={product.title}/>
-                        </div>
+                <div className='bestseller-carousel-inner' style={{transform: `translateX(-${(sliderPage - 1) * 150}%)`}}>
+                    {productsToShow.map((product, index) => (
+                        <div className='product-card' key={index}>
+                            <div className='image-container'>
+                                <img src={jordbær} alt={product.title}/>
+                            </div>
 
-                        <div className='body-container'>
-                            <div className='title'>
-                                <Link to={"/product" + product._id}>
-                                    {product.title}
-                                </Link>
-                            </div>
-                            
-                            <div className='product-info'>
-                                <span>{product.price}kr</span>
-                                <button><FontAwesomeIcon icon={faCartShopping} /></button>
+                            <div className='body-container'>
+                                <div className='title'>
+                                    <Link to={"/product" + product._id}>
+                                        {product.title}
+                                    </Link>
+                                </div>
+                                
+                                <div className='product-info'>
+                                    <span>{product.price}kr</span>
+                                    <button onClick={() => addToCart({product})}><FontAwesomeIcon icon={faCartShopping} /></button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
                     
+                </div>
                 
             </div>
 
@@ -93,7 +98,8 @@ const BestSellers = () => {
             </div>
             
         </div>
-        }</>
+        }
+        </>
     )
 }
 

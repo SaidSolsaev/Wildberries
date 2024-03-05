@@ -11,15 +11,29 @@
 .bestseller-carousel{
     display: flex;
     justify-content: center;
+    overflow-x: hidden; /* Hide the horizontal overflow */
+    width: 100%; /* Full width of the container */
+}
+
+  
+.bestseller-carousel-inner {
+    display: flex;
+    transition: transform 1.7s ease-in-out; /* Smooth transition for sliding effect */
+    gap: 10px;
 }
 
 .product-card{
-    width: 280px;
+    width: 270px;
     display: flex;
     padding: 7px 16px;
     flex-direction: column;
+    border-bottom: 5px solid #fde4e4;
 }
 
+.product-card .image-container{
+    margin: 0;
+    padding: 0;
+}
 
 .product-card .image-container img{
     max-width: 100%;
@@ -35,6 +49,7 @@
     display: flex;
     flex-direction: column;
     padding: 1em 0 2rem;
+    
 }
 
 .product-card .body-container .title{
@@ -82,6 +97,7 @@
 
 .button-link-wrapper{
     padding: 8px 16px;
+    margin-top: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;

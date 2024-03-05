@@ -20,7 +20,7 @@ export default function Cart({setShowCart}) {
         let itemPrice = 0;
 
         cartItems.map(item => 
-            itemPrice += item.item.price * item.quantity
+            itemPrice += item.product.price * item.quantity
         )
 
         return itemPrice.toFixed(2);
