@@ -1,6 +1,6 @@
 import React from 'react'
 import { useCart } from '../../context/CartContext';
-// import pic from "../../assets/images/exampleItem.jpg";
+import pic from "../../assets/images/jordbær.jpeg";
 import {faXmark} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -23,17 +23,17 @@ export default function CartItem({item}) {
     
     return (
         <div className='cart_item_info'>
-            <div style={{display: "flex", alignItems: "center", marginRight: "20px"}}>
-
-                {/* <img alt='product' src={pic}/> */}
-            </div>
-
             <div className='cart_product_info'>
+                <div style={{display: "flex", alignItems: "center"}}>
+
+                    <img alt='product' src={pic}/>
+                </div>
+
                 <div className='cart_product_info_col'>
                     <h4>{item.product.title}</h4>
                     <p>
                         {item.quantity}x
-                        <span>{(item.product.price * item.quantity).toFixed(2)}$</span>
+                        <span>{(item.product.price * item.quantity).toFixed(2)}Kr</span>
                     </p>
 
                     <div className="cart_product_increase">

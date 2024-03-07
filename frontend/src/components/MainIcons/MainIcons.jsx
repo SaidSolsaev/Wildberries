@@ -7,21 +7,21 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 const MainIcons = () => {
     
     return (
-        <div class="service-section">
+        <div className="service-section">
             <div className='container'>
                 <div className='item-container'>
-                    <div class="service-item">
+                    <div className="service-item">
                         <span><FontAwesomeIcon icon={faStar} /></span>
                         <p>Kvalitetsgaranti på alle bær</p>
                     </div>
                     
-                    <div class="service-item">
+                    <div className="service-item">
                         <span><FontAwesomeIcon icon={faTruckFast} /></span>
                         <p>Levering på døren samme dag</p>
                     </div>
                     
                     
-                    <div class="service-item">
+                    <div className="service-item">
                         <span><FontAwesomeIcon icon={faHandsHolding}/></span>
                         <p>Ferske & Håndplukkede hver dag</p>
                     </div>

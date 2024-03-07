@@ -30,7 +30,9 @@ export default function Cart({setShowCart}) {
     return (
         <div className="cart_container">
             <ul className='cart_list'>
+                
                 <div className="cart_close">
+                    <h5>Handlekurv</h5>
                     <span onClick={() => setShowCart(false)}>
                         <i><FontAwesomeIcon icon={faCircleXmark} /></i>
                     </span>
@@ -38,19 +40,18 @@ export default function Cart({setShowCart}) {
 
                 <div className="cart_items">
                     {cartItems.length === 0 ? (
-                        <h3 style={{textAlign: "center"}}>Cart is empty</h3>
+                        <h3 style={{textAlign: "center", marginTop: "20px"}}>Handlekurven er tom</h3>
                     ) : (
                         cartItems.map((item, i) => (
                             <CartItem item={item} key={i}/>
                         ))
                     )}
-                    
                 </div>
 
                 <div className="cart_bottom">
-                    <h2>Total: {totalPrice()}$</h2>
+                    <h2>Totalt: {totalPrice()}Kr</h2>
                     <button className='cart_checkoutBtn' disabled={cartItems.length === 0 ? true : false} onClick={handleNavigate}>
-                        Checkout
+                        Gå til kasse
                         <span><FontAwesomeIcon icon={faArrowRight} /></span>
                     </button>
                 </div>
