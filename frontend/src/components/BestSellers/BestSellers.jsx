@@ -62,7 +62,9 @@ const BestSellers = () => {
                     {productsToShow.map((product, index) => (
                         <div className='product-card' key={index}>
                             <div className='image-container'>
-                                <img src={jordbær} alt={product.title}/>
+                                <Link to={"/product" + product._id}>
+                                    <img src={jordbær} alt={product.title}/>
+                                </Link>
                             </div>
 
                             <div className='body-container'>
@@ -89,7 +91,7 @@ const BestSellers = () => {
                     <Link>Se alle bestselgere</Link>
                 </div>
                 <div className='slide-icons'>
-                    <span>{sliderPage} / 3</span>
+                    <span>{sliderPage} / 2</span>
                     <div className='arrow-icons'>
                         <FontAwesomeIcon icon={faArrowLeft} onClick={() => handleSlider(-1)}/>
                         <FontAwesomeIcon icon={faArrowRight} onClick={() => handleSlider(+1)}/>

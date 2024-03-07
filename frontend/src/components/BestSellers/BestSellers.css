@@ -8,6 +8,11 @@
     padding: 30px 16px;
 }
 
+.header-text h4{
+    padding: 0 16px;
+    font-size: 22px;
+}
+
 .bestseller-carousel{
     display: flex;
     justify-content: center;
@@ -38,7 +43,7 @@
 .product-card .image-container img{
     max-width: 100%;
     cursor: pointer;
-    transition: all .7s;
+    transition: all .5s;
 }
 
 .product-card .image-container img:hover{

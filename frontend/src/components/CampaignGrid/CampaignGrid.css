@@ -1,0 +1,10 @@
+.campaignSection{
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.image-container{
+    margin: 32px 0;
+    display: flex;
+    flex-wrap: wrap;
+}

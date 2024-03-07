@@ -5,6 +5,7 @@ import FeauteredCategories from '../../components/FeaturedCategories/FeaturedCat
 import MainIcons from '../../components/MainIcons/MainIcons.jsx'
 import BestSellers from '../../components/BestSellers/BestSellers.jsx'
 import Footer from '../../components/Footer/Footer.jsx'
+import CampaignGrid from '../../components/CampaignGrid/CampaignGrid.jsx'
 
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
             <MainIcons />
             <FeauteredCategories />
             <BestSellers />
+            <CampaignGrid />
             <Footer />
         </div>
     )
