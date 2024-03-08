@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import {Link} from "react-router-dom";
 import useFetch from "../../hooks/useFetch"
-import "./BestSellers.css";
 import jordbær from "../../assets/images/jordbær.jpeg"
 import {faCartShopping, faArrowRight, faArrowLeft} from "@fortawesome/free-solid-svg-icons"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import {useCart} from "../../context/CartContext"
 
-const BestSellers = () => {
-    const {data, loading} = useFetch("/product");
+const ProductSlider = ({title, url}) => {
+    const {data, loading} = useFetch(`/${url}`);
     const [featuredProducts, setFeaturedProducts] = useState([]);
     const [sliderPage, setSliderPage] = useState(1)
 
 
 
     useEffect(() => {
-        setFeaturedProducts(data.filter((item) => item.isFeatured));
+        setFeaturedProducts(data);
     }, [data])
+
+    console.log(featuredProducts)
 
     function handleSlider(change) {
         setSliderPage((prevPage) => {
@@ -53,7 +54,7 @@ const BestSellers = () => {
             <div className='bestseller-section'>
                 <div className='bestseller-header'>
                     <div className='header-text'>
-                        <h4>Våre bestselgere</h4>
+                        <h4>{title}</h4>
                     </div>
                 </div>
 
@@ -88,7 +89,7 @@ const BestSellers = () => {
 
                 <div className='button-link-wrapper'>
                     <div className='button-container'>
-                        <Link>Se alle bestselgere</Link>
+                        <Link>Se alle produkter</Link>
                     </div>
                     <div className='slide-icons'>
                         <span>{sliderPage} / 2</span>
@@ -105,4 +106,4 @@ const BestSellers = () => {
     )
 }
 
-export default BestSellers
+export default ProductSlider
