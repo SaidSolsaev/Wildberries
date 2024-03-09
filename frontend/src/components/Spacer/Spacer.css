@@ -1,0 +1,10 @@
+.spacer-section{
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 40px 0 10px 0;
+}
+
+.spacer-section .title-container{
+    font-size: 26px;
+    text-align: center;
+}

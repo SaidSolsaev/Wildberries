@@ -1,35 +1,23 @@
 
-.bestseller-section{
+.carousel-section{
     max-width: 1140px;
     margin: 0 auto;
 }
 
 .header-text{
-    padding: 30px 16px;
+    padding: 30px 16px 15px;
 }
 
 .header-text h4{
-    padding: 0 16px;
+    /* padding: 0 16px; */
     font-size: 22px;
 }
 
-.bestseller-carousel{
-    display: flex;
-    justify-content: center;
-    overflow-x: hidden; /* Hide the horizontal overflow */
-    width: 100%; /* Full width of the container */
-}
-
-  
-.bestseller-carousel-inner {
-    display: flex;
-    transition: transform 1.7s ease-in-out; /* Smooth transition for sliding effect */
-    gap: 10px;
-}
 
 .product-card{
     width: 270px;
     display: flex;
+    flex: 0 0 270px; 
     padding: 7px 16px;
     flex-direction: column;
     border-bottom: 5px solid #fde4e4;
