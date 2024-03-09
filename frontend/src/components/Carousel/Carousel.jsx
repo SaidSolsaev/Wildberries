@@ -27,16 +27,16 @@ const CarouselComponent = ({title, products}) => {
         },
         desktop: {
           breakpoint: { max: 1024, min: 800 },
-          items: 4,
-          slidesToSlide: 4,
+          items: 3,
+          slidesToSlide: 3,
         },
         tablet: {
-          breakpoint: { max: 800, min: 464 },
+          breakpoint: { max: 800, min: 510 },
           items: 2,
         },
         mobile: {
-          breakpoint: { max: 464, min: 0 },
-          items: 2,
+          breakpoint: { max: 510, min: 0 },
+          items: 1,
         },
       };
 

@@ -3,7 +3,12 @@ import "./Login.css";
 import axios from "axios";
 import { AuthContext } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../../components/Navbar/Navbar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faLock, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faFacebookF, faTwitter, faGoogle, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap";
+import pic from "../../assets/images/login.svg"
 
 
 export default function Login() {
@@ -22,7 +27,15 @@ export default function Login() {
 
     const [isLogin, setIsLogin] = useState(true);
 
-    
+    const [isSignUpMode, setIsSignUpMode] = useState(false);
+
+    const handleSignUpClick = () => {
+        setIsSignUpMode(true);
+    };
+
+    const handleSignInClick = () => {
+        setIsSignUpMode(false);
+    };
 
     const navigate = useNavigate();
 
@@ -35,11 +48,6 @@ export default function Login() {
     const handleNewUserChange = (e) => {
         setNewUserCredentials(prev => ({...prev, [e.target.id]: e.target.value}));
     }
-
-    const viewLogin = (status) => {
-        setIsLogin(status);
-    }
-
 
     const handleLogin = async e => {
         e.preventDefault();
@@ -70,43 +78,115 @@ export default function Login() {
     }
 
     return (
-        <div className="auth-container">
-            <div className='auth-container-box'>
-                <form>
-                    <h2>{isLogin ? 'Please Log In' : 'Sign Up'}</h2>
+        <div className={`login-container ${isSignUpMode ? 'sign-up-mode' : ''}`}>
+            <div className="forms-container">
+                <div className="signin-signup">
+                    <form action="#" className="sign-in-form">
+                        <h2 className="title">Logg inn</h2>
+                        {error && <p className="error-message">{error.message}</p>}
+                        <div className="input-field">
+                            <FontAwesomeIcon icon={faUser} style={{margin: "auto"}}/>
+                            <input required id='username' onChange={handleChange} type="text" placeholder="Brukernavn" />
+                        </div>
+                        
+                        <div className="input-field">
+                            <FontAwesomeIcon icon={faLock} style={{margin: "auto"}}/>
+                            <input required id='password' onChange={handleChange} type="password" placeholder="Passord" />
+                        </div>
 
-                    {!isLogin && 
-                        <>
-                            <input required type='email' id='email' placeholder='Email...' onChange={handleNewUserChange}/>
-                            <input required type='text' id='name' placeholder='First Name...' onChange={handleNewUserChange}/>
-                            <input required type='text' id='lastname' placeholder='Last Name...' onChange={handleNewUserChange}/>
-                        </>
-                    }
+                        <button className='button' onClick={handleLogin}>Logg inn</button>
+                        <p className="social-text">Logg inn med</p>
+                        
+                        <div className="social-media">
+                            <a href="#" className="social-icon">
+                                <FontAwesomeIcon icon={faFacebookF} style={{margin: "auto"}}/>
+                            </a>
+                            
+                            <a href="#" className="social-icon">
+                                <FontAwesomeIcon icon={faGoogle} style={{margin: "auto"}}/>
+                            </a>
+                            
+                        </div>
+                    </form>
+            
+                    <form action="#" className="sign-up-form">
+                        <h2 className="title">Registrer deg</h2>
+                        
+                        <div className="input-field">
+                            <FontAwesomeIcon icon={faUser} style={{margin: "auto"}}/>
+                            <input required id='name' onChange={handleNewUserChange} type="text" placeholder="Fornavn" />
+                        </div>
+
+                        <div className="input-field">
+                            <FontAwesomeIcon icon={faUser} style={{margin: "auto"}}/>
+                            <input required id='lastname' onChange={handleNewUserChange} type="text" placeholder="Etternavn" />
+                        </div>
+                        
+                        <div className="input-field">
+                            <FontAwesomeIcon icon={faUser} style={{margin: "auto"}}/>
+                            <input required id='username' onChange={handleNewUserChange} type="text" placeholder="Brukernavn" />
+                        </div>
+
+                        <div className="input-field">
+                            <FontAwesomeIcon icon={faEnvelope} style={{margin: "auto"}}/>
+                            <input required id='email' onChange={handleNewUserChange} type="email" placeholder="Email" />
+                        </div>
+
+                        <div className="input-field">
+                            <FontAwesomeIcon icon={faLock} style={{margin: "auto"}}/>
+                            <input required id='password' onChange={handleNewUserChange} type="password" placeholder="Passord" />
+                        </div>
+
+                        <button className='button' onClick={handleRegister}>Registrer</button>
+                        <p className="social-text">Eller registrer deg med</p>
+                        
+                        <div className="social-media">
+                            <a href="#" className="social-icon">
+                                <FontAwesomeIcon icon={faFacebookF} style={{margin: "auto"}}/>
+                            </a>
+                            
+                            <a href="#" className="social-icon">
+                                <FontAwesomeIcon icon={faGoogle} style={{margin: "auto"}}/>
+                            </a>
+                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div className="panels-container">
+                <div className="panel left-panel">
+                    <div className="content">
+                        <h3>Ny her?</h3>
+                        
+                        <p>
+                            Registrer en bruker nå!
+                        </p>
+                        
+                        <button className="button transparent" onClick={handleSignUpClick}>
+                            Registrer deg
+                        </button>
+                    </div>
                     
-                    <input required type="text" placeholder='Username' id='username' onChange={isLogin ? handleChange : handleNewUserChange} />
-                    <input required type="password" placeholder='Password' id='password' onChange={isLogin ? handleChange : handleNewUserChange}  />
-
-                    <input type='submit' value={isLogin ? "Log in" : "Register"} className='create' onClick={isLogin ? handleLogin : handleRegister}/>
-                    
-                    {error && <span className='error-msg'>{error.message}!<br />Try again</span>}
-                </form>
-
-                <div className='auth-options'>
-                    <button 
-                        onClick={() => viewLogin(false)}
-                        style={{backgroundColor: !isLogin ? '#df2020' : '#fde4e4', borderBottomLeftRadius: "10px"}}
-                    >
-                        Sign up
-                    </button>
-                    <button
-                        style={{backgroundColor: isLogin ? '#df2020' : '#fde4e4', borderBottomRightRadius: "10px"}} 
-                        onClick={() => viewLogin(true)}
-                    >
-                        Login
-                    </button>
+                    <img src={pic} className="image" alt="" />
+                </div>
+                
+                <div className="panel right-panel">
+                    <div className="content">
+                        <h3>En av oss?</h3>
+                        
+                        <p>
+                            Fortsett til innlogging!
+                        </p>
+                        
+                        <button onClick={handleSignInClick} className="button transparent" id="sign-in-btn">
+                            Logg inn
+                        </button>
+                    </div>
+                    <img src={pic} className="image" alt="123" />
                 </div>
             </div>
         </div>
+    )}
         
-    )
-}
+  
