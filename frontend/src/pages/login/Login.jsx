@@ -5,10 +5,8 @@ import { AuthContext } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faLock, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faFacebookF, faTwitter, faGoogle, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-import "bootstrap";
-import pic from "../../assets/images/login.svg"
+import { faFacebookF, faGoogle } from '@fortawesome/free-brands-svg-icons';
+import pic from "../../assets/images/login.svg";
 
 
 export default function Login() {
@@ -21,11 +19,9 @@ export default function Login() {
         username: undefined,
         password: undefined,
         email: undefined,
-        name: undefined,
+        firstname: undefined,
         lastname: undefined
     });
-
-    const [isLogin, setIsLogin] = useState(true);
 
     const [isSignUpMode, setIsSignUpMode] = useState(false);
 
@@ -70,7 +66,7 @@ export default function Login() {
             const res = await axios.post(`${process.env.REACT_APP_SERVERURL}/auth/register`, newUserCredentials)
             
             dispatch({type: "REGISTER_SUCCESS", payload: res.data})
-            window.location.reload(); 
+            window.location.reload();
         } catch (error) {
             console.log(error)
             dispatch({type: "REGISTER_FAIL", payload: error.response.data})
@@ -98,23 +94,23 @@ export default function Login() {
                         <p className="social-text">Logg inn med</p>
                         
                         <div className="social-media">
-                            <a href="#" className="social-icon">
+                            <span className="social-icon">
                                 <FontAwesomeIcon icon={faFacebookF} style={{margin: "auto"}}/>
-                            </a>
+                            </span>
                             
-                            <a href="#" className="social-icon">
+                            <span className="social-icon">
                                 <FontAwesomeIcon icon={faGoogle} style={{margin: "auto"}}/>
-                            </a>
+                            </span>
                             
                         </div>
                     </form>
             
-                    <form action="#" className="sign-up-form">
+                    <form className="sign-up-form">
                         <h2 className="title">Registrer deg</h2>
                         
                         <div className="input-field">
                             <FontAwesomeIcon icon={faUser} style={{margin: "auto"}}/>
-                            <input required id='name' onChange={handleNewUserChange} type="text" placeholder="Fornavn" />
+                            <input required id='firstname' onChange={handleNewUserChange} type="text" placeholder="Fornavn" />
                         </div>
 
                         <div className="input-field">
@@ -141,13 +137,13 @@ export default function Login() {
                         <p className="social-text">Eller registrer deg med</p>
                         
                         <div className="social-media">
-                            <a href="#" className="social-icon">
+                            <span className="social-icon">
                                 <FontAwesomeIcon icon={faFacebookF} style={{margin: "auto"}}/>
-                            </a>
+                            </span>
                             
-                            <a href="#" className="social-icon">
+                            <span className="social-icon">
                                 <FontAwesomeIcon icon={faGoogle} style={{margin: "auto"}}/>
-                            </a>
+                            </span>
                             
                         </div>
                     </form>
@@ -159,16 +155,14 @@ export default function Login() {
                     <div className="content">
                         <h3>Ny her?</h3>
                         
-                        <p>
-                            Registrer en bruker nå!
-                        </p>
+                        <p>Registrer en bruker nå!</p>
                         
                         <button className="button transparent" onClick={handleSignUpClick}>
                             Registrer deg
                         </button>
                     </div>
                     
-                    <img src={pic} className="image" alt="" />
+                    <img src={pic} className="image" alt="login" />
                 </div>
                 
                 <div className="panel right-panel">
@@ -183,7 +177,7 @@ export default function Login() {
                             Logg inn
                         </button>
                     </div>
-                    <img src={pic} className="image" alt="123" />
+                    <img src={pic} className="image" alt="login" />
                 </div>
             </div>
         </div>

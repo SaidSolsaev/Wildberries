@@ -18,11 +18,11 @@ const Home = () => {
     const [allProducts, setAllProducts] = useState([]);
 
     let strawberry_id = process.env.REACT_APP_STRAWBERRY_CAT_ID;
-
+    
 
     useEffect(() => {
         setBestsellers(data.filter((item) => item.isFeatured))
-        setAllProducts(data.filter((item) => item.category == strawberry_id));
+        setAllProducts(data.filter((item) => item.category === strawberry_id));
     },[data])
 
 
