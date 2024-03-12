@@ -107,7 +107,7 @@ export default function Login() {
             
                     <form className="sign-up-form">
                         <h2 className="title">Registrer deg</h2>
-                        
+                        {error && <p className="error-message">{error.message}</p>}
                         <div className="input-field">
                             <FontAwesomeIcon icon={faUser} style={{margin: "auto"}}/>
                             <input required id='firstname' onChange={handleNewUserChange} type="text" placeholder="Fornavn" />

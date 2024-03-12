@@ -80,7 +80,7 @@ const CarouselComponent = ({title, products}) => {
                         <Link>Se alle produkter</Link>
                     </div>
                 </div>
-                
+                <span className='shopping-cart'><FontAwesomeIcon icon={faCartShopping} /></span>
             </div>
     )
 }

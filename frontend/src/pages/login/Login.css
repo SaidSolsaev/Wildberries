@@ -102,11 +102,10 @@ form.sign-in-form {
     padding: 10px; 
     margin: 10px 0; 
     border: 1px solid #f05656; 
-    text-align: center; 
-    width: 80%; 
+    text-align: center;
+    width: 60%;
     margin-left: auto;
-    margin-right: auto;
-      
+    margin-right: auto; 
 }
     
 .input-field input::placeholder {
@@ -179,8 +178,8 @@ form.sign-in-form {
     position: absolute;
     height: 2000px;
     width: 2000px;
-    top: -10%;
-    right: 48%;
+    top: -5%;
+    right: 45%;
     transform: translateY(-50%);
     background-image: linear-gradient(90deg, rgba(240,86,86,1) 0%, rgba(241,6,6,1) 100%);
     transition: 1.8s ease-in-out;
@@ -242,7 +241,7 @@ form.sign-in-form {
     
 .right-panel .image,
 .right-panel .content {
-    transform: translateX(800px);
+    transform: translateX(1200px);
 }
     
  /* ANIMATION */
@@ -254,7 +253,7 @@ form.sign-in-form {
     
 .login-container.sign-up-mode .left-panel .image,
 .login-container.sign-up-mode .left-panel .content {
-    transform: translateX(-800px);
+    transform: translateX(-1200px);
 }
     
 .login-container.sign-up-mode .signin-signup {
@@ -289,6 +288,7 @@ form.sign-in-form {
         min-height: 800px;
         height: 100vh;
     }
+
     .signin-signup {
         width: 100%;
         top: 95%;
