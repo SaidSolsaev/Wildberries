@@ -87,36 +87,9 @@
 
 .product-card .product-info button:hover{
     background-color: rgb(253, 6, 6);
-    animation: fly-to-cart 4s;
 }
 
-.shopping-cart {
-    opacity: 0;
-}
 
-@keyframes fly-to-cart{
-    
-    0%{
-        left: 0;
-        top: 0;
-        
-    }
-    45%, 50%{
-        left: 500px;
-        top: 60px;
-    }
-    80%, 90%{
-        left: 0;
-        top: 0;
-        transform: scale(.2);
-        
-    }
-    100%{
-        left: 0;
-        top: 0;
-        transform: scale(.2);
-    }
-}
 
 .button-link-wrapper{
     padding: 8px 16px;

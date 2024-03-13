@@ -28,7 +28,8 @@ export default function Cart({setShowCart}) {
     
     
     return (
-        <div className="cart_container">
+        <div className="cart_container" >
+
             <ul className='cart_list'>
                 
                 <div className="cart_close">
@@ -55,7 +56,8 @@ export default function Cart({setShowCart}) {
                         <span><FontAwesomeIcon icon={faArrowRight} /></span>
                     </button>
                 </div>
-            </ul>            
+            </ul>
+
         </div>
     )
 }
