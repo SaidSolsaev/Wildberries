@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import "./Login.css";
 import axios from "axios";
 import { AuthContext } from '../../context/AuthContext';
@@ -35,7 +35,7 @@ export default function Login() {
 
     const navigate = useNavigate();
 
-    const {error, dispatch} = useContext(AuthContext);
+    const {user, error, dispatch} = useContext(AuthContext);
 
     const handleChange = (e) => {
         setCredentials(prev => ({...prev, [e.target.id]: e.target.value}));
@@ -58,6 +58,7 @@ export default function Login() {
         }
     };
 
+
     const handleRegister = async e => {
         e.preventDefault();
         dispatch({type: "REGISTER_START"})
@@ -72,6 +73,13 @@ export default function Login() {
             dispatch({type: "REGISTER_FAIL", payload: error.response.data})
         }
     }
+
+    useEffect(() => {
+        if (user){
+            return navigate("/")
+        }
+    }, [user])
+    
 
     return (
         <div className={`login-container ${isSignUpMode ? 'sign-up-mode' : ''}`}>
@@ -181,6 +189,7 @@ export default function Login() {
                 </div>
             </div>
         </div>
-    )}
+    )
+}
         
   

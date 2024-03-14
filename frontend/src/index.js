@@ -10,7 +10,7 @@ root.render(
   <React.StrictMode>
     <AuthContextProvider>
       <CartProvider>
-        <App style={{width: "100vw"}}/>
+        <App />
       </CartProvider>
     </AuthContextProvider>
   </React.StrictMode>
